@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>DRM in the Music Industry</title>
+
+    <!-- Tangle -->
+    <script src="Tangle.js"></script>
+
+    <!-- TangleKit -->
+    <link rel="stylesheet" href="TangleKit/TangleKit.css" type="text/css">
+    <script src="TangleKit/mootools.js"></script>
+    <script src="TangleKit/sprintf.js"></script>
+    <script src="TangleKit/BVTouchable.js"></script>
+    <script src="TangleKit/TangleKit.js"></script>
+
+    <!-- Model -->
+    <script src="model.js"></script>
+
+    <!-- Tangle Control. -->
+    <script src="ui.js"></script>
+</head>
+
+<body onload="setUpTangle();">
+    <h1>DRM in the Music Industry</h1>
+    <h2>Model</h2>
+    The number of artists
+        n = <span data-var="n" class="TKAdjustableNumber" data-min="10" data-max="1000"></span>.<br>
+
+    The number of firms
+        m = <span data-var="m" class="TKAdjustableNumber" data-min="2" data-max="30"></span>.<br>
+
+    The percentage of the market lost through the introduction of DRM
+        &gamma; = <span data-var="gamma" class="TKAdjustableNumber" data-min="0" data-max="100" data-format="twoDigit"></span>.<br>
+
+    The effectiveness of DRM
+        &epsilon; = <span data-var="epsilon" class="TKAdjustableNumber" data-min="0" data-max="100" data-format="twoDigit"></span>.<br>
+
+    <h2>Solution</h2>
+    <span data-var="solution"></span>.
+</body>
+</html>

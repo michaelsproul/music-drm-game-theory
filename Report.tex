@@ -1,0 +1,166 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[margin=2cm]{geometry}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{enumerate}
+\usepackage{amsmath, amssymb}
+\usepackage{mathtools}
+\setlength\parindent{0pt}
+% \setcounter{secnumdepth}{0}
+\pagestyle{empty}
+
+% Graphics
+% \begin{figure}[h]
+% \centering
+% \includegraphics[width=]{}
+% \label{}
+% \end{figure}
+
+% DRM macros
+\newcommand{\drm}{\text{DRM}}
+\newcommand{\nodrm}{\overline{\drm}}
+
+% Whole game payoff macros (game_number, player number).
+\newcommand{\artistpayoff}[2]{\pi_{#1, M_{#2}}}
+\newcommand{\firmpayoff}[2]{\pi_{{#1}, F_{#2}}}
+
+% Part game payoff macros.
+\newcommand{\artistalbum}[2]{\pi_{#1, M_{#2}, A}}
+\newcommand{\artistticket}[2]{\pi_{#1, M_{#2}, T}}
+\newcommand{\firmalbum}[2]{\pi_{#1, F_{#2}, A}}
+\newcommand{\firmticket}[2]{\pi_{#1, F_{#2}, T}}
+
+% Derivative macros.
+\newcommand{\deriv}[2]{\frac{d #1}{d #2}}
+\newcommand{\doublederiv}[2]{\frac{d^2 #1}{d {#2}^2}}
+
+% DRM influence on album demand.
+\newcommand{\drminf}{(\psi \epsilon - \gamma)}
+
+% Ceiling commands.
+\def\lc{\left\lceil}   
+\def\rc{\right\rceil}
+
+\begin{document}
+
+\begin{titlepage}
+\begin{center}
+
+\vspace*{5cm}
+\Large
+\textbf{Game Theory, DRM, Music and Video Games}
+
+\vspace*{0.5cm}
+\large
+\textsc{Hugo Lhuillier}\\
+Sciences Po\\[1.2em]
+\textsc{Mitch Mastroni}\\
+University of California, Santa Cruz\\[1.2em]
+\textsc{Boonrith Pongrasamiroj}\\
+Thammasat University\\[1.2em]
+\textsc{Michael Sproul}\\
+University of Sydney
+
+\vspace*{3cm}
+\textsc{Group 2}\\[1.2em]
+\textsc{ECON 166A, Fall 2014}\\
+University of California, Santa Cruz
+
+\vfill
+
+\today
+
+\end{center}
+\end{titlepage}
+\pagebreak
+
+\section{Introduction}
+\section{Previous Work}
+\section{Our Model}
+\subsection{Game 1: Pricing Game}
+\subsection{Game 2: DRM Game}
+\pagebreak
+\section{Solutions}
+
+\subsection{Game 1: Pricing Game}
+
+To solve the pricing game, we considered the optimal price desired by the artists. All the artists have the same payoff function, $\artistpayoff{1}{i}$, which depends on the continuous variable $P_A$ and no discretely valued variables. Therefore it is possible to maximise $\artistpayoff{1}{i}$ using simple calculus. Given an artist-optimal value of the album price, $P_A^*$, we prove that the firms must all set this price in any Nash Equilibrium utilising pure strategies.\\
+
+Imagine a situation where the firms have agreed on prices such that the highest price chosen by a firm is $P_A^- < P_A^*$. In this case, all firms not already choosing $P_A^-$ have a best response to increase their price to $P_A^-$ in order to make them indistinguishable from the top firm(s), which would otherwise take the business of all the artists. Artists care only about getting as close to $P_A^*$ as possible, and will always choose the firm that offers the closest price. To this end, the firms all have a best response to increase their price to get closest to $P_A^*$. With this pressure applied from the upwards direction as well, it's clear that the only equilibria will have all of the firms setting their price at $P_A^*$.\\
+
+With all the firms offering the same price, the artists have no way to distunguish them, and can choose arbitrarily without destroying the equilibria. Given that each of the $n$ artists has a choice of $m$ firms, this gives rise to $m^n$ Nash Equilibria in the pricing game.\\
+
+$P_A^*$ can be found by maximising $\artistpayoff{1}{i}$:
+\begin{eqnarray*}
+\artistpayoff{1}{i} & = & (a_A - \sigma_A P_A)\alpha_A P_A + (a_T - k \sigma_T P_A) k \alpha_T P_A\\
+\deriv{\pi}{P_A} & = & a_A \alpha_A - 2 \alpha_A \sigma_A P_A + k a_T \alpha_T - 2 \alpha_T \sigma_T k P_A\\
+\doublederiv{\pi}{P_A} & = & -2(\alpha_A \sigma_A + \alpha_T \sigma_T) < 0 \Rightarrow \text{maximum}
+\end{eqnarray*}
+
+Solving $\deriv{\pi}{P_A} = 0$ yields:
+\begin{eqnarray}
+P_A^* = \frac{\alpha_A a_A + k \alpha_T a_T}{2(\alpha_A \sigma_A + k \alpha_T \sigma_T)}
+\end{eqnarray}
+
+\subsection{Game 2: DRM Game}
+
+The solution to the DRM game has a similar structure to that of the pricing game. Once again, the artists control the behaviour of the firms, and are free to choose between them. The difference is that the DRM game is paramaterised by a number of constants: $\psi$, $\epsilon$, $\gamma$ and $\rho$, which generate several types of systems. In this section we explore the nature of equilibria in these different systems.\\
+
+Given the payoff function for the artists as follows, note that the artists will have a strict preference for DRM or $\overline{\text{DRM}}$:
+\begin{eqnarray*}
+\artistpayoff{2}{i} = (1 + \delta (\psi \epsilon - \gamma)) \artistalbum{1}{i} + (1 - \delta \lambda) \artistticket{1}{i}
+\end{eqnarray*}
+
+This follows from the fact that the payoff from the first game is fixed, and that $\delta$ is a binary variable. Comparing the payoff with DRM to the payoff without, there are three possiblities: either DRM is favourable, $\nodrm$ is favourable, or the payoffs are equal, in which case the artists are ambivalent.\\
+
+First consider the two cases where the payoffs are different. In these cases, the best response of the firms is to set $\delta$ according to the artists' preference. It is impossible to have an equilibrium where the firms set $\delta$ against the artists' preference, as this would result in one firm deviating and stealing the entire market. Hence the only possible equilibria involve all the firms setting $\delta$ in the way that is optimal for the artists. As before, the artists then have no way to differentiate the firms and can choose between them freely, for a total of $m^n$ Nash Equilibria in pure strategies.\\
+
+This isn't quite the whole story however, as the firms also pay a cost for implementing DRM, and may be forced to disable DRM if this cost is prohibitive. Accumulating more artists reduces the cost of DRM, and hence for each system, there is a number of players $\eta$, such that firms with $\eta$ or more players are better off if they implement DRM. Computing the value of $\eta$ is done by equating the two firm payoffs:
+\begin{eqnarray*}
+\firmpayoff{2}{i}(\delta = 1, l_i = \eta) & = & \firmpayoff{2}{i}(\delta = 0, l_i = \eta)\\
+\eta \left[\left(1 + \delta \drminf\right) \firmalbum{1}{i} + (1 - \delta \lambda) \firmticket{1}{i}\right] - \frac{\rho}{\eta + 1} & = & \eta (\firmalbum{1}{i} + \firmticket{1}{i})
+\end{eqnarray*}
+
+Solving for (positive) $\eta$ yields:
+\begin{eqnarray}
+\eta & = & \lc \frac{-1 + \sqrt{1 + 4 x}}{2} \rc \\
+\text{where } x & = & \frac{\rho}{\drminf \firmalbum{1}{i} - \lambda \firmticket{1}{i}} \nonumber
+\end{eqnarray}
+
+We are now in a position to classify some more system behaviour. If $\eta = 1$, then it is always beneficial for firms to implement DRM, given a fixed value of $l_i > 0$. We say that the DRM is \textit{strongly firm-beneficial}. At the other extreme, if $\eta > n$, then firms are worse-off implementing DRM for a fixed choice of $l_i > 0$, and we say that the DRM is \textit{strongly firm-detrimental}. Note that the presence of strongly beneficial or strongly detrimental DRM is not sufficient to predict what the firms will choose, due to the market effect introduced by the artists. As explained above, if artists prefer one DRM state to another, firms must choose that state to avoid losing the entire market. The exception to this is firms with no artists, which must always choose $\nodrm$, to avoid a negative payoff. The resulting dynamics are best captured by an exhaustive enumeration of possible scenarios.
+\begin{itemize}
+\item Artists prefer DRM.
+	\begin{itemize}
+	\item DRM is strongly firm-beneficial ($\eta = 1$): All firms with associated artists enable DRM. Any configuration of this form is a Nash Equilibrium.
+	\item DRM is strongly firm-detrimental ($\eta > n$): As long as the firm payoff for implementing DRM is not negative, all equilibria involve firms with non-zero $l_i$ enabling DRM due to the market effect, and firms with $l_i = 0$ disabling DRM to avoid negative payoffs. If the firm payoff is negative for values of $l_i > l_i^* > 0$, then the system is \textit{degenerate}. In the interests of brevity we don't consider such systems here.
+	\item DRM is firm-moderate ($1 < \eta \leq n$): Nash Equilibria in this case are comprised of some firms with DRM enabled and $l_i \geq \eta$, and others with DRM disabled and $l_i = 0$.
+	\end{itemize}
+\item Artists prefer no DRM.\\
+In this case, the firm preference is irrelevant. At equilibrium, all firms disable DRM and artists associate freely.
+\end{itemize}
+
+In the case where artists are ambivalent to DRM, equilibria are characterised by some firms with DRM enabled and $l_i \geq \eta$, and others with DRM disabled and $\eta < \eta$. This is similar to the case where artists prefer DRM and DRM is firm-moderate, except that firms without DRM can posess artists at equilibrium.\\
+
+Finally, we come to describing the parametrisations that cause artists to prefer one DRM state over another. It would take many pages to quantify the influence of all three parameters influencing artists ($\psi, \epsilon$, $\gamma$ and $\lambda$), so we concern ourselves only with $\epsilon$ - the effectiveness of DRM in preventing piracy - as it is the least well known. In the next section we provide real-world estimates of the other parameters.\\
+
+To compute the critical value of $\epsilon$ at which artist preferences flip, we solved the following inequation involving the payoffs with and without DRM:
+\begin{eqnarray*}
+\artistpayoff{2}{i}(\delta = 1) & > & \artistpayoff{2}{i}(\delta = 0)\\
+(1 + \delta \drminf) \artistalbum{1}{i} + (1 - \delta \lambda) \artistticket{1}{i} & > & \artistalbum{1}{i} + \artistticket{1}{i}
+\end{eqnarray*}
+
+Solving for $\epsilon$ we have that DRM is artist-beneficial when:
+\begin{eqnarray}
+\epsilon > \frac{1}{\psi} \left( \frac{\lambda \artistticket{1}{i}}{\artistalbum{1}{i}} + \gamma \right)
+\end{eqnarray}
+
+When $\epsilon$ is equal to the term on the right, which we shall call $\epsilon^*$, the payoffs are equal and the artists are DRM ambivalent. Combined with the characterisations from above, and values for $\psi, \gamma, \lambda$ and $\rho$ this allows us to predict the equilibrium behaviour of a DRM system where $\epsilon$ is uncertain.
+
+\pagebreak
+\section{Estimation of Parameters}
+
+\section{Extensions to the Model}
+
+\section{Implications for the Video Game Industry}
+\end{document}

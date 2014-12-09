@@ -16,16 +16,19 @@
 
 % Abstract definition.
 \renewenvironment{abstract}
- {\small
+ {\normalsize
   \begin{center}
   \bfseries \abstractname\vspace{-.5em}\vspace{0pt}
   \end{center}
   \list{}{%
-    \setlength{\leftmargin}{30mm}% <---------- CHANGE HERE
+    \setlength{\leftmargin}{20mm}%
     \setlength{\rightmargin}{\leftmargin}%
   }%
   \item\relax}
  {\endlist}
+
+\def\changemargin#1#2{\list{}{\rightmargin#2\leftmargin#1}\item[]}
+\let\endchangemargin=\endlist
 
 % DRM macros
 \newcommand{\drm}{\text{DRM}}
@@ -60,7 +63,11 @@
 
 \vspace*{3cm}
 \Large
-\textbf{Game Theory, DRM, Music and Video Games}
+\begin{changemargin}{2cm}{2cm}
+\begin{center}
+\textbf{Game Theoretic Retrospective on DRM in the Music Industry}
+\end{center}
+\end{changemargin}
 
 \vspace*{0.5cm}
 \large
@@ -359,7 +366,8 @@ Conceptually, the tension between artists and firms over DRM is a consequence of
 \pagebreak
 \section{Estimation of Parameters} \label{Sec:Estimates}
 
-\subsection{Real World Solutions}
+\subsection{Equilibria in the Music Industry}
+
 
 
 

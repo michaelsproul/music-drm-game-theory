@@ -1,16 +1,20 @@
 \documentclass[a4paper,12pt]{article}
 \usepackage[margin=2cm]{geometry}
-\usepackage{hyperref}
+\usepackage[hidelinks]{hyperref}
 \usepackage{graphicx}
 \usepackage{float}
 \usepackage{enumerate}
 \usepackage{amsmath, amssymb}
 \usepackage{mathtools}
-\setlength\parindent{0pt}
-% \setcounter{secnumdepth}{0}
-\pagestyle{empty}
+\usepackage[utf8]{inputenc}
+\usepackage{url}
+\usepackage[nottoc,numbib]{tocbibind}
 
-% Graphics
+\setlength\parindent{0pt}
+\pagestyle{empty}
+\numberwithin{equation}{section}
+
+% Graphics Template.
 % \begin{figure}[h]
 % \centering
 % \includegraphics[width=]{}
@@ -44,6 +48,7 @@
 
 \begin{document}
 
+% Title Page.
 \begin{titlepage}
 \begin{center}
 
@@ -77,9 +82,91 @@ University of California, Santa Cruz
 
 \section{Introduction}
 \section{Previous Work}
+
 \section{Our Model}
-\subsection{Game 1: Pricing Game}
-\subsection{Game 2: DRM Game}
+\subsection{Game Setting}
+
+The DRM game is made of two categories of player, the record labels and the artists. The record labels are, with the artist, the major actors of the music industry market; indeed, a record label is a publishing company which ``coordinates the production, manufacture, distribution, marketing, promotion, and enforcement of copyright for sound recordings and music videos''\cite{klein2014}. Interestingly for this game is to note that there are a limited numbers of record labels in the current music industry market. According to the 2005 IFPI report, four firms were controlling more than three-fourth of the market in 2005; specifically, Universal Music Group had 28.8\% of the market, Sony Music Entertainment 21.1\%, EMI 14.1\%, and Warner Music Group 13.4\%.\\
+
+The second category of players is the artist. Note that, even though the game represents the music market industry, consumers are not explicitly considered as players in the game, neither in the underlying model. Nonetheless, as DRM affect consumers' behaviors, either by forcing them to buy album by fighting illegal piracy, or by decreasing their willingness to pay for albums, consumers' preferences are incorporated into firms' and artists' profit function, as presented in the next section.\\
+
+The whole game is divided into two games, with first a pricing game, and then the DRM game properly speaking.\footnote{
+This duality is not consistent with the reality; in the real music industry market, firms decide simultaneously whether they want to implement DRM systems, and the price of their albums and concert tickets. However, in order to keep the model simple, we assumed that they were first fighting over the price of their products, and then taking a decision about DRM, maintaining those prices constant.
+}\\
+
+In the first game, the first players to move are the firms, competing against each other in order to maximize their profit by varying their album and concert tickets prices. When fixing its prices, a given firm does not know what the other firms are doing. Notice that prices have two effects in this game; first, by fixing higher prices than other record labels, a given firm appears as more profitable for artists. Therefore, more artists are likely to sign a contract with this record label, increasing ultimately its profit. However, higher prices imply in the meantime a lower demand for a given record label, potentially decreasing its profit.\\
+
+Artists, observing prices fixed by record labels, decide then with which firms they want to sign a contract. For simplicity, they cannot quit the market, or be independent.\\
+
+Follow this first game the DRM game, in which the album and concert ticket prices taken into account by the players are the ones determined in the first game. In this new game, firms choose first whether they want to enforce DRM systems in their product. A record label cannot decide to implement DRM only for some artists.  Enforcing DRM systems can have two opposite effects on a firm's profit. On one hand, by decreasing the number of illegal download, DRM increases the demand for album. On the other hand, consumers can have an aversion for album with DRM inside, triggering a decrease in the album demand. Moreover, artists can also dislike DRM since it could potentially decreases the exposure of their work, and, ergo, the number of people going to their concerts. The effect of DRM on firms' and artists' profit depends therefore on the relative impact of these two effects.
+
+% EFG figure.
+\begin{figure}[h]
+\centering
+\includegraphics[width=12cm]{Graphics/GameTree.pdf}
+\caption{Extensive Form Game for the Whole Game, from a Record Label's Perspective.}
+\end{figure}
+
+Figure 1 summarizes the previously described game configuration into an extensive form game. The dash box around the first two nodes represents the separation between the two games. Note that, for simplicity purpose, this figure is not the entire extensive form game, but the description of the game from a record label's point of view. Specifically, after deciding of a price, $P_{A, F_i}$, the artist can decide whether to go with this given record label, $F_i$, or any other firms, $F_j$, $i \ne j$. In the second game, the same label chooses whether enforcing DRM systems in its products, and the artist, once more, decides if he or she wants to go with this firm. If the artist opts for another firm, $F_j$, $F_i$'s profit is zero. If, on the contrary, the artist selects $F_i$, $F_i$'s payoff is positive, as described in the following section.
+
+\subsection{Payoff Functions}
+
+\subsubsection{Game 1: Pricing Game}
+
+Firms are profit maximizer, that being true even in the music industry. Firms' payoff can therefore be described by a profit function such as $\pi_{F_i} = TR_{F_i} - TC_{F_i}$.\\
+
+The record labels' revenues are made of the sales from the artists' albums under their label, tours and concerts from those same artists, and merchandising. For simplicity purpose, merchandising revenues are assumed to be constant for the four firms, so that firms' profits ultimately rely on revenues from album sales \& concerts \footnote{
+A more realistic assumption is that merchandising revenues are a function of the albums and tickets sales – the more famous an artist is, the more album he or she sold, as well as tickets, the more merchandise products his or her fans purchase. In both case, record labels will try to maximize the quantity of albums and tickets sold to maximize the quantity of merchandise products.
+}.\\
+
+On the other side, record labels' costs are composed for more than two third of their total costs of marketing \& promotion expenditures, selling, general \& administrative expenses, and royalty payments. Because marketing \& promotion are not the topics of interest of this paper, they are assumed to be constant for the four firms, and, ergo, not taking into consideration into the model. Record labels' costs can be reduced to the payments of the artists under their label.\\
+
+Therefore, the profit of a given firm, $F_i$, for a particular artist (musician) within the record label, $M$, can be describe as:
+\begin{eqnarray}
+\pi_{F_i, M} = \pi_{F_i, M, A} + \pi_{F_i, M, T}
+\label{Eq:FirmTotalPayoff}
+\end{eqnarray}  
+
+Where $\pi_{Fi, M, A}$ is the record label's profit depending on the quantity of album sold for an artist $M$, and $\pi_{F_i, M, T}$ the record label's profit varying in function of the number of concert tickets sold for the same artist $M$. Specifically:
+\begin{eqnarray}
+\pi_{F_i, M, A} = (a_{A, M} - \sigma_{A, M} P_{A, M})(1 - \alpha_{A, M}) P_{A, M}
+\label{Eq:FirmAlbumPayoff}
+\end{eqnarray}
+
+With $a_{A, M}$ a constant standing for the demand for the album of a given artist when its price is zero, $\sigma_{A, M}$ a constant expressing the variation of album sold induced by a marginal variation in album price, $P_{A, M}$ the price of an album $A$ for an artist $M$, fixed by the record label $F_i$, $a_{A, M}, \sigma_{A, M}, P_{A, M} > 0$, and $\alpha_{A, M}$ the album sharing rules determined by the record labels, $0 < \alpha_i < 1$. Equation $\eqref{Eq:FirmAlbumPayoff}$ is nothing more than a usual profit function, where the left-side of the equation represents the demand for albums - the demand being negatively related to the album price, and the right side of the equation describes the profit per album, namely the difference between the price of the album and its costs, assumed to be only made of the part of the price the record label is ready to giving up to the artist.\\
+
+Similarly for the concert tickets profit:
+\begin{eqnarray}
+\pi_{F_i, M, T} = (a_{M, T} - \sigma_{M, T} P_{M, T})(1 - \alpha_{M, T}) P_{M, T}
+\label{Eq:FirmTicketPayoff}
+\end{eqnarray}
+
+$a_{M, T}$ is a constant portraying the demand for concert tickets of a given artist when its price is zero, $\sigma_{M, T}$ is a constant precising the variation of concert ticket sold triggered by a marginal variation in concert ticket price, $P_{M, T}$ is the price of a concert ticket, $a_{M, T}, \sigma_{M, T}, P_{M, T} > 0$, and $\alpha_{M, T}$ the concert ticket sharing rules, also determined by the record labels, $0 < \alpha_i < 1$.\\
+
+Substituting \eqref{Eq:FirmAlbumPayoff} and \eqref{Eq:FirmTicketPayoff} into \eqref{Eq:FirmTotalPayoff} yields the following record label’s profit function for one of its artists, $M$:
+\begin{eqnarray}
+\pi_{F_i, M} = (a_{M, A} - \sigma_{M, A} P_{M, A})(1 - \alpha_{M, A}) P_{M, A} +
+	(a_{M, T} - \sigma_{M, T} P_{M, T})(1 - \alpha_{M, T}) P_{M, T}
+\end{eqnarray}
+
+To simplify this model, the albums and concert tickets prices are presumed equal for all artists within a record label, as well as the album and concert tickets sharing rules \footnote{
+These assumptions are empirically not true; however, this paper is interested in looking at how competition between firms shapes the decisions about whether or not implementing DRM systems. In that sense, even though prices are obviously different among artists within a record label, one can consider $P_{M, A}$ and $P_{M, T}$ as the mean of all different possible prices of albums and concert tickets within a record label. The same explanation can be provided for $\alpha_A$ and $\alpha_T$ equal for all artists within a firm.
+}.
+
+Moreover, it is assumed that the album and tickets demand when the price is zero, the price elasticity of album and concert tickets, and the album and concerts sharing rules are equal for the four labels, such that $a_{M, A} = a_A$. Additionally, the concert ticket price can be expressed as a function of the album price:
+\begin{eqnarray*}
+P_{i, T} = k P_{i, A}
+\end{eqnarray*}
+
+Where $k$ is a constant defined as the average concert ticket price over the average album price, $k > 0$. Adding altogether those changes shows the following record label’s profit function for a given artist, $M$:
+\begin{eqnarray}
+\pi_{F_i, M} = (a_A - \sigma_A P_{F_i, A})(1 - \alpha_A) P_{F_i, A} +
+	(a_T - \sigma_T k P_{F_i, A}) (1 - \alpha_T) k P_{F_i, A}
+\end{eqnarray}
+
+\subsubsection{Game 2: DRM Game}
+
+
 \pagebreak
 \section{Solutions}
 
@@ -163,4 +250,10 @@ When $\epsilon$ is equal to the term on the right, which we shall call $\epsilon
 \section{Extensions to the Model}
 
 \section{Implications for the Video Game Industry}
+
+\section{Conclusion}
+
+\bibliographystyle{plain}
+\bibliography{References}
+
 \end{document}

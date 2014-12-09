@@ -14,12 +14,7 @@
 \pagestyle{empty}
 \numberwithin{equation}{section}
 
-% Graphics Template.
-% \begin{figure}[h]
-% \centering
-% \includegraphics[width=]{}
-% \label{}
-% \end{figure}
+
 
 % DRM macros
 \newcommand{\drm}{\text{DRM}}
@@ -81,9 +76,16 @@ University of California, Santa Cruz
 \pagebreak
 
 \section{Introduction}
-\section{Previous Work}
 
-\section{Our Model}
+\section{Literature Review}
+
+We begin with the paper that is interesting but yet simple called ``The DRM Game'' by Heileman G et al \cite{heileman2007}. It shows the game theoretical analysis of DRM as a simple extensive form game as well as a more advance strategic form game. The first analysis consists of vendor and consumer playing a sequential move one-shot game where the consumer moves first. The consumer is, then, required to take an action on whether to purchase or illegally download. Vendor has an option to implement technological protection or not. The paper further shows that DRM could not be perfect, as in there will definitely be some leak even with the presence of technological protection thus allows file sharing to happen even in the case of DRM. More importantly, they focus on its subgame where, after both players choose the actions mentioned above, consumer decides to share or not to share files he or she obtains and vendor chooses whether to take a legal action against the consumer or not. The game needs to be solved with mixed strategy Nash equilibrium with the probability that vendor will take an action as low as around 0.4\% of the time. An important aspect that this paper gives us an insight about is that DRM is a negotiating game. In a repeated game where consumer and vendor play this game repetitively, the outcome is the same as a one-shot game. The equilibrium of this game has to be mixed. Both parties negotiate, indirectly through the repetitive nature of the game, until it is such that consumer’s behavior drives vendor to take an action against them meanwhile vendor’s action will force consumer to stop sharing. Hence, they conclude that the in the repeated game the equilibrium would be such that no matter the vendor imposes technological protection or not, the consumer will not share the content and the vendor will take action against piracy, even though they rarely do so.\\
+
+In ``Who should own access rights? A game-theoretical approach to striking the optimal balance in the debate over Digital Rights Management'' by Yu-Lin Chang \cite{chang2007}, he approaches the problem in a very interesting way. The problem could not be solved by only looking at one aspect, namely, economics but need to be approached carefully on various sides. Chang introduces the concept of ``the notation of balance'' and argues that the way to solve this problem of implementing DRM is neither to give full restriction to the firm nor totally free access of the content to the public. He claims that it is about the right balance of the rights distributed between the two parties. While DRM in the past tended to limit the use of users who purchased the content, it fails miserably. At the same time, the era of free access when internet spread worldwide caused the information industry to lose a lot of money and was in trouble. The Nash equilibrium is when there is a correct amount of balance between the consumer’s right and the firm’s right to access to the content. Chang offers the solution that happens to be a prisoner’s dilemma where the Nash equilibrium is better for the society as a whole but is not the best for each player in the game.\\
+
+There also is a paper which applies mathematics and computer programming to the analysis of how DRM works. Zhang, Pei, Ma, and Yang show in their paper ``Game-Theoretic Analyses and Simulations of Adoptions of Security Policies for DRM in Contents Sharing Scenario'' \cite{zhang2011} the method of constructing a payoff equation and matrices for provider and sharer. The game is shown as a simultaneous-move game. Later on, the game is evolved to dynamic and mixed game with two players, providers and sharers. They later on develop a simulation that simulates the repeated game with many sharers and providers as in the case of reality. The equilibrium occurs when the game is at all-enhanced security strategy. That is providers will forfeit all-general security, the old method of DRM which encrypt the files and make it very inconvenient to use in general, and turn to all-enhanced security strategy. They explain that it is a new method of DRM with higher security that enables users to share the content within their trusted devices, hence allows them to use the content as their wills within the acceptable constraint agreed by both providers and sharers.
+
+\section{Model}
 \subsection{Game Setting}
 
 The DRM game is made of two categories of player, the record labels and the artists. The record labels are, with the artist, the major actors of the music industry market; indeed, a record label is a publishing company which ``coordinates the production, manufacture, distribution, marketing, promotion, and enforcement of copyright for sound recordings and music videos''\cite{klein2014}. Interestingly for this game is to note that there are a limited numbers of record labels in the current music industry market. According to the 2005 IFPI report, four firms were controlling more than three-fourth of the market in 2005; specifically, Universal Music Group had 28.8\% of the market, Sony Music Entertainment 21.1\%, EMI 14.1\%, and Warner Music Group 13.4\%.\\
@@ -324,7 +326,7 @@ Solving for $\epsilon$ we have that DRM is artist-beneficial when:
 
 When $\epsilon$ is equal to the term on the right, which we shall call $\epsilon^*$, the payoffs are equal and the artists are DRM ambivalent. Combined with the characterisations from above, and values for $\psi, \gamma, \theta$ and $\rho$ this allows us to predict the equilibrium behaviour of a DRM system where $\epsilon$ is uncertain.\\
 
-Conceptually, the tension between artists and firms over DRM is a consequence of varying valuations of albums and concerts, and the impact that DRM has on both. Whilst it is possible (and even likely), for DRM to have little impact on concerts, this can have a profound impact on the dynamics of the game if arists receive more of their revenue from concerts ($\alpha_T \gg \alpha_A$), and therefore feel the impact of DRM stronger than the firms. Conversely, firms are more likely to be negatively effected by DRM if $\drminf$ is large, and firms draw most of their revenue from album sales ($\alpha_T \ll \alpha_A$). This interaction is discussed further in section \ref{Sec:Estimations}.
+Conceptually, the tension between artists and firms over DRM is a consequence of varying valuations of albums and concerts, and the impact that DRM has on both. Whilst it is possible (and even likely), for DRM to have little impact on concerts, this can have a profound impact on the dynamics of the game if arists receive more of their revenue from concerts ($\alpha_T \gg \alpha_A$), and therefore feel the impact of DRM stronger than the firms. Conversely, firms are more likely to be negatively effected by DRM if $\drminf$ is large, and firms draw most of their revenue from album sales ($\alpha_T \ll \alpha_A$). This interaction is discussed further in section \ref{Sec:Estimates}.
 
 \pagebreak
 \section{Estimation of Parameters} \label{Sec:Estimates}

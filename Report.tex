@@ -164,8 +164,88 @@ Where $k$ is a constant defined as the average concert ticket price over the ave
 	(a_T - \sigma_T k P_{F_i, A}) (1 - \alpha_T) k P_{F_i, A}
 \end{eqnarray}
 
+From here, record label’s profit function for any artist being the same for all artists under contract with it, its total profit function is the sum of the per artist profit:
+\begin{eqnarray}
+\pi_{F_i} = l_{F_i} (a_A - \sigma P_{F_i, A})(1 - \alpha_A) P_{F_i, A} +
+	(a_T - \sigma_T k P_{F_i, A})(1 - \alpha_T) k P_{F_i, A}
+\end{eqnarray}
+
+$l_{F_i}$ standing for the number of artist under contract with the record label, $l_{F_i} \in [0, n]$, such that $\sum_{i = 1}^m l_i = n$, $n$ being the total number of artists in the music industry market, $m$ being the number of firms (in our case, 4).\\
+
+The other players’ payoffs, namely the artists’ payoffs, are defined similarly. Specifically, their album and concert demands are the same as the record labels’ ones, and their profit per unit are the complement of the record label’s revenue, i.e. the share of the concert ticket or album price the record label accept to give to them, $\alpha P_{F_i, A}$ or $\alpha_T k P_{F_i, A}$. Eventually, making an album or putting on a concert is not without costs to the artist, so the constants $C_A$ and $C_T$, where $C_A, C_T > 0$,  encode the cost of producing an album and a concert series respectively. Those two finals parameters are assumed to be fixed cost defined exogenously\footnote{
+This assumption is consistent with the reality of the music market industry since, most of the time, artists sign a contract with a record label stipulating a priori how much the production of an album will cost to them, and this cost does not evolve with the number of album sold.
+}. Formally, the payoff function of a given artist, $M$, is given by:
+\begin{eqnarray}
+\pi_M = (a_A - \sigma_A P_{F_i, A})\alpha_A P_{F_i, A} - C_A
+	+ (\alpha_T - \sigma_T k P_{F_i, A}) \alpha_T k P_{F_i, A} - C_T
+\end{eqnarray}
+
+This formal description of the model is useful to define the player’s strategy set. The four firms, $F_i$, playing first, chooses $P_{F_i, A} > 0$, followed by the artists, signing a contract with a record label $F_i, i \in [0, m], where m = 4$. Because all artists have the same payoff function, a representative artist is designated as the only player for the artist category. 
+
 \subsubsection{Game 2: DRM Game}
 
+The second game studies whether record labels have incentives to implement DRM in their products. The players’ payoff functions are mainly based on the same framework as the first game, except that $P_{F_i, A}$ is now considered as a constant, and no longer as an independent variable.\\
+
+Formally, recalling that a firm’s album and a firm’s ticket concert profit are:
+\begin{eqnarray}
+\pi_{F_i, A} = l_{F_i} (a_A - \sigma_A P_{F_i, A})(1 - \alpha_{F_i, A}) P_{F_i, A}\\
+\pi_{F_i, T} = l_{F_i} (a_A - \sigma_A P_{F_i, A})(1 - \alpha_{F_i, T}) k P_{F_i, A}
+\end{eqnarray}
+
+The new payoff function is defined as:
+
+\begin{eqnarray}
+\firmpayoff{2}{i} = \firmalbum{1}{i} (D_A) + \firmticket{1}{i}  (D_T) - C_{\drm}
+\label{Eq:FirmTotalPayoffDRM}
+\end{eqnarray}
+
+Where $D_A$ and $D_T$ are respectively the impact of DRM on the album and ticket concert profit, and $C_{\drm}$ stands for the cost of implementing DRM systems. Specifically:
+\begin{eqnarray}
+D_A = 1 + \delta \drminf
+\label{Eq:DA}
+\end{eqnarray}
+
+With $\delta$ a binary variable, $\delta \in \{0, 1\}$, equal to one when DRM systems are enforced, $\psi$ the number of illegal download for a record label, and $\gamma$ the consumers’ disutility of purchasing an album with DRM in it, $\psi > 0, \gamma \geq 0$. DRM can indeed be viewed as a constraint from the consumer’s point of view, reducing his or her willingness to pay for a given album. Eventually, $\epsilon$ represents the effectiveness of DRM to fight illegal piracy, $0 \leq \epsilon \leq 1$, such that if $\epsilon = 1$, DRM systems are extremely effective and illegal download no longer exists. Therefore, $\drminf$ describes the tradeoff record labels are facing when they are deciding whether they should implement DRM systems.\\
+
+Similarly:
+\begin{eqnarray}
+D_T = 1 - \delta \theta
+\label{Eq:DT}
+\end{eqnarray}
+
+Where $\theta$ is the number of tickets non-sold due to the presence of DRM on firms’ products, coming both from the fact that consumers do not want to go to concerts of artist who have DRM on their music and from the fact that the music of artists with DRM systems can be less spread due to more difficulties to illegally download the product, generating therefore less fans, $\theta > 0$.\\
+
+Eventually, implementing DRM systems has a cost:
+\begin{eqnarray}
+C_\drm = \frac{\rho}{l_{F_i} + 1}
+\label{Eq:CostDRM}
+\end{eqnarray}
+
+$\rho$ portraying the cost of DRM, $\rho > 0$. Implicit in this cost function is that economies of scale exist, such that, for a given value of $\rho$ for a given firm, the cost of implementing DRM will decrease as the number of artists within this label increases.\\
+
+Equation \eqref{Eq:FirmTotalPayoffDRM} can be seen in terms of percentage. If a firm decides to not implement DRM, then delta equals zero, and its payoff, $\firmpayoff{2}{i}$, is identical to the one derived in the previous game (100\%). If, on the contrary, a record label chooses to go for DRM, then its profit evolves by $\drminf$, depending on the effectiveness of DRM and the way consumers dislike DRM, $\drminf$ defining a percentage of the previous profit, possibly greater or smaller than 100\%\footnote {
+Section \ref{Sec:Estimates} estimates those parameters and substitutes them into the profit functions, which can help to better understand the new payoff function if this is not already the case.
+}.\\
+
+In order to not add further complexity to this model, $\gamma$, $\psi$ and $\epsilon$ are assumed to be constant and equal for all firms. Of particular interest for our topic, $\epsilon$ is defined exogenously, such that record labels have no control over the effectiveness of DRM. This strong assumption is discussed in section \ref{Sec:Extensions}, where possible extensions of the model are presented.\\
+
+Substituting \eqref{Eq:DA}, \eqref{Eq:DT} and \eqref{Eq:CostDRM} into \eqref{Eq:FirmTotalPayoffDRM} yields:
+\begin{eqnarray}
+\firmpayoff{2}{i} = l_{F_i} \left[
+	(1 + \delta \drminf) \firmalbum{1}{i} +
+	(1 - \delta \theta) \firmticket{1}{i}
+\right]
+- \delta \left( \frac{\rho}{l_{F_i} + 1} \right)
+\end{eqnarray}
+
+Regarding the representative artist’s payoff, the impact of DRM on his or her profit is the same as the one for the record labels. Formally, his or her new payoff function is given by:
+
+\begin{eqnarray}
+\artistpayoff{2}{i} = (1 + \delta \drminf) \artistalbum{1}{i} - C_A +
+						(1 - \delta \theta) \artistticket{1}{i} - C_T
+\end{eqnarray}
+
+Once more, this formal description is useful to derive players’ strategy set. Firms, acting first, choose $\delta \in \{0, 1\}$, followed by the representative artist, deciding to sign a contract with one of the four labels, $F_i$, $F_i \in \{F_1, F_2, F_3, F_4\}$.
 
 \pagebreak
 \section{Solutions}
@@ -196,7 +276,7 @@ The solution to the DRM game has a similar structure to that of the pricing game
 
 Given the payoff function for the artists as follows, note that the artists will have a strict preference for DRM or $\overline{\text{DRM}}$:
 \begin{eqnarray*}
-\artistpayoff{2}{i} = (1 + \delta (\psi \epsilon - \gamma)) \artistalbum{1}{i} + (1 - \delta \lambda) \artistticket{1}{i}
+\artistpayoff{2}{i} = (1 + \delta (\psi \epsilon - \gamma)) \artistalbum{1}{i} + (1 - \delta \theta) \artistticket{1}{i}
 \end{eqnarray*}
 
 This follows from the fact that the payoff from the first game is fixed, and that $\delta$ is a binary variable. Comparing the payoff with DRM to the payoff without, there are three possiblities: either DRM is favourable, $\nodrm$ is favourable, or the payoffs are equal, in which case the artists are ambivalent.\\
@@ -206,13 +286,13 @@ First consider the two cases where the payoffs are different. In these cases, th
 This isn't quite the whole story however, as the firms also pay a cost for implementing DRM, and may be forced to disable DRM if this cost is prohibitive. Accumulating more artists reduces the cost of DRM, and hence for each system, there is a number of players $\eta$, such that firms with $\eta$ or more players are better off if they implement DRM. Computing the value of $\eta$ is done by equating the two firm payoffs:
 \begin{eqnarray*}
 \firmpayoff{2}{i}(\delta = 1, l_i = \eta) & = & \firmpayoff{2}{i}(\delta = 0, l_i = \eta)\\
-\eta \left[\left(1 + \delta \drminf\right) \firmalbum{1}{i} + (1 - \delta \lambda) \firmticket{1}{i}\right] - \frac{\rho}{\eta + 1} & = & \eta (\firmalbum{1}{i} + \firmticket{1}{i})
+\eta \left[\left(1 + \delta \drminf\right) \firmalbum{1}{i} + (1 - \delta \theta) \firmticket{1}{i}\right] - \frac{\rho}{\eta + 1} & = & \eta (\firmalbum{1}{i} + \firmticket{1}{i})
 \end{eqnarray*}
 
 Solving for (positive) $\eta$ yields:
 \begin{eqnarray}
 \eta & = & \lc \frac{-1 + \sqrt{1 + 4 x}}{2} \rc \\
-\text{where } x & = & \frac{\rho}{\drminf \firmalbum{1}{i} - \lambda \firmticket{1}{i}} \nonumber
+\text{where } x & = & \frac{\rho}{\drminf \firmalbum{1}{i} - \theta \firmticket{1}{i}} \nonumber
 \end{eqnarray}
 
 We are now in a position to classify some more system behaviour. If $\eta = 1$, then it is always beneficial for firms to implement DRM, given a fixed value of $l_i > 0$. We say that the DRM is \textit{strongly firm-beneficial}. At the other extreme, if $\eta > n$, then firms are worse-off implementing DRM for a fixed choice of $l_i > 0$, and we say that the DRM is \textit{strongly firm-detrimental}. Note that the presence of strongly beneficial or strongly detrimental DRM is not sufficient to predict what the firms will choose, due to the market effect introduced by the artists. As explained above, if artists prefer one DRM state to another, firms must choose that state to avoid losing the entire market. The exception to this is firms with no artists, which must always choose $\nodrm$, to avoid a negative payoff. The resulting dynamics are best captured by an exhaustive enumeration of possible scenarios.
@@ -229,25 +309,25 @@ In this case, the firm preference is irrelevant. At equilibrium, all firms disab
 
 In the case where artists are ambivalent to DRM, equilibria are characterised by some firms with DRM enabled and $l_i \geq \eta$, and others with DRM disabled and $\eta < \eta$. This is similar to the case where artists prefer DRM and DRM is firm-moderate, except that firms without DRM can posess artists at equilibrium.\\
 
-Finally, we come to describing the parametrisations that cause artists to prefer one DRM state over another. It would take many pages to quantify the influence of all three parameters influencing artists ($\psi, \epsilon$, $\gamma$ and $\lambda$), so we concern ourselves only with $\epsilon$ - the effectiveness of DRM in preventing piracy - as it is the least well known. In the next section we provide real-world estimates of the other parameters.\\
+Finally, we come to describing the parametrisations that cause artists to prefer one DRM state over another. It would take many pages to quantify the influence of all three parameters influencing artists ($\psi, \epsilon$, $\gamma$ and $\theta$), so we concern ourselves only with $\epsilon$ - the effectiveness of DRM in preventing piracy - as it is the least well known. In the next section we provide real-world estimates of the other parameters.\\
 
 To compute the critical value of $\epsilon$ at which artist preferences flip, we solved the following inequation involving the payoffs with and without DRM:
 \begin{eqnarray*}
 \artistpayoff{2}{i}(\delta = 1) & > & \artistpayoff{2}{i}(\delta = 0)\\
-(1 + \delta \drminf) \artistalbum{1}{i} + (1 - \delta \lambda) \artistticket{1}{i} & > & \artistalbum{1}{i} + \artistticket{1}{i}
+(1 + \delta \drminf) \artistalbum{1}{i} + (1 - \delta \theta) \artistticket{1}{i} & > & \artistalbum{1}{i} + \artistticket{1}{i}
 \end{eqnarray*}
 
 Solving for $\epsilon$ we have that DRM is artist-beneficial when:
 \begin{eqnarray}
-\epsilon > \frac{1}{\psi} \left( \frac{\lambda \artistticket{1}{i}}{\artistalbum{1}{i}} + \gamma \right)
+\epsilon > \frac{1}{\psi} \left( \frac{\theta \artistticket{1}{i}}{\artistalbum{1}{i}} + \gamma \right)
 \end{eqnarray}
 
-When $\epsilon$ is equal to the term on the right, which we shall call $\epsilon^*$, the payoffs are equal and the artists are DRM ambivalent. Combined with the characterisations from above, and values for $\psi, \gamma, \lambda$ and $\rho$ this allows us to predict the equilibrium behaviour of a DRM system where $\epsilon$ is uncertain.
+When $\epsilon$ is equal to the term on the right, which we shall call $\epsilon^*$, the payoffs are equal and the artists are DRM ambivalent. Combined with the characterisations from above, and values for $\psi, \gamma, \theta$ and $\rho$ this allows us to predict the equilibrium behaviour of a DRM system where $\epsilon$ is uncertain.
 
 \pagebreak
-\section{Estimation of Parameters}
+\section{Estimation of Parameters} \label{Sec:Estimates}
 
-\section{Extensions to the Model}
+\section{Extensions to the Model} \label{Sec:Extensions}
 
 \section{Implications for the Video Game Industry}
 

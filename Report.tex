@@ -14,7 +14,18 @@
 \pagestyle{empty}
 \numberwithin{equation}{section}
 
-
+% Abstract definition.
+\renewenvironment{abstract}
+ {\small
+  \begin{center}
+  \bfseries \abstractname\vspace{-.5em}\vspace{0pt}
+  \end{center}
+  \list{}{%
+    \setlength{\leftmargin}{30mm}% <---------- CHANGE HERE
+    \setlength{\rightmargin}{\leftmargin}%
+  }%
+  \item\relax}
+ {\endlist}
 
 % DRM macros
 \newcommand{\drm}{\text{DRM}}
@@ -47,7 +58,7 @@
 \begin{titlepage}
 \begin{center}
 
-\vspace*{5cm}
+\vspace*{3cm}
 \Large
 \textbf{Game Theory, DRM, Music and Video Games}
 
@@ -62,12 +73,17 @@ Thammasat University\\[1.2em]
 \textsc{Michael Sproul}\\
 University of Sydney
 
-\vspace*{3cm}
+\vspace*{1cm}
+\begin{abstract}
+Digital Rights Management, DRM, is a controversial mechanism for controlling the use of digital media. It once enjoyed popularity in the music industry, but has recently fallen into disuse and is now almost entirely absent. It persists in the video game industry however, and in this paper we seek to assess why this is the case, and how the market might evolve in the future. We provide a game theoretic model of a digital market for $m$ firms (product vendors) and $n$ artists. Consumers are modelled in the payoff functions of the players, and the firms can choose whether to enable DRM. Through backwards induction we derive the equilibria that exist for different settings of the game parameters, and apply quantitative data to explain the failure of DRM in the music industry. Finally, we apply our model to the video game industry, and find that the continued success of DRM is likely.
+\end{abstract}
+
+\vfill
+
+\normalsize
 \textsc{Group 2}\\[1.2em]
 \textsc{ECON 166A, Fall 2014}\\
 University of California, Santa Cruz
-
-\vfill
 
 \today
 
@@ -77,9 +93,21 @@ University of California, Santa Cruz
 
 \section{Introduction}
 
+All digital information is inherently trivial to duplicate. From an MP3 file containing a single song to an entire file system of digital assets and executables, an exact replica can be made with no monetary cost beyond the electricity it takes to power the computer. With the advent of the internet, distribution of any digitizable object has become trivial. Peer-to-peer file sharing has been utilized to illegally distribute a vast quantity of copyrighted material. The Recording Industry Association of America blames piracy for \$12.5 billion in economic losses every year.\\
+
+As a reaction to file sharing, many industries adopted the use of digital rights management. The term digital rights management (DRM) broadly refers to a set of policies, techniques and tools that guide the proper use of digital content. More specifically, DRM attempts to control the executing, viewing, copying, printing, and/or altering of digital works.\\
+
+Over the past decade and a half, the music industry has implemented two types of DRM: one for audio CDs and another for music distributed through the internet. The DRM included on audio CDs became a commercial failure after Sony BMG’s DRM that was introduced in 2005 was found to install a rootkit on the user’s computer which caused a security vulnerability and eventually led to a recall of millions of CDs.\\
+
+The primary focus of this paper is the use of DRM in internet music, which is to say music that was legally distributed online through stores such as the iTunes Store. This type of DRM restricts the use of the file, often limiting its use to a player provided by the store and linked to a specific user account. Although it was an industry standard in the first decade of the 21st century, some of the largest online music stores have moved away from DRM usage. In the case of Musicload.de, one of Europe's largest internet music retailers, openly expressed their disapproval of its usage in music.\\
+
+Our goal is to model the relationship between the musicians (artists), record labels (firms), and listeners (consumers) and see how the equilibria relate to historical reality. We hope that by effectively modeling the decisions and payoffs around DRM in the music industry will allow us to create models for DRM usage in other industries that are accurate and predictive of future behavior.\\
+
+The video game industry lends itself to this application as its use of RDM by publishers and acceptance of RDM by consumers is still in flux. Digitally distributed video games are released with a variety of different RDM that varies by the store through which the game is purchased, with some stores selling exclusively RDM-free copies of games. Even though this is a more complex scenario, we believe that our model will give insight into this situation.
+
 \section{Literature Review}
 
-We begin with the paper that is interesting but yet simple called ``The DRM Game'' by Heileman G et al \cite{heileman2007}. It shows the game theoretical analysis of DRM as a simple extensive form game as well as a more advance strategic form game. The first analysis consists of vendor and consumer playing a sequential move one-shot game where the consumer moves first. The consumer is, then, required to take an action on whether to purchase or illegally download. Vendor has an option to implement technological protection or not. The paper further shows that DRM could not be perfect, as in there will definitely be some leak even with the presence of technological protection thus allows file sharing to happen even in the case of DRM. More importantly, they focus on its subgame where, after both players choose the actions mentioned above, consumer decides to share or not to share files he or she obtains and vendor chooses whether to take a legal action against the consumer or not. The game needs to be solved with mixed strategy Nash equilibrium with the probability that vendor will take an action as low as around 0.4\% of the time. An important aspect that this paper gives us an insight about is that DRM is a negotiating game. In a repeated game where consumer and vendor play this game repetitively, the outcome is the same as a one-shot game. The equilibrium of this game has to be mixed. Both parties negotiate, indirectly through the repetitive nature of the game, until it is such that consumer’s behavior drives vendor to take an action against them meanwhile vendor’s action will force consumer to stop sharing. Hence, they conclude that the in the repeated game the equilibrium would be such that no matter the vendor imposes technological protection or not, the consumer will not share the content and the vendor will take action against piracy, even though they rarely do so.\\
+We begin with the paper that is interesting but simple called ``The DRM Game'' by Heileman G et al \cite{heileman2007}. It shows the game theoretical analysis of DRM as a simple extensive form game as well as a more advanced strategic form game. The first analysis consists of vendor and consumer playing a sequential move one-shot game where the consumer moves first. The consumer is, then, required to take an action on whether to purchase or illegally download. Vendor has an option to implement technological protection or not. The paper further shows that DRM could not be perfect, as in there will definitely be some leak even with the presence of technological protection thus allows file sharing to happen even in the case of DRM. More importantly, they focus on its subgame where, after both players choose the actions mentioned above, consumer decides to share or not to share files he or she obtains and vendor chooses whether to take a legal action against the consumer or not. The game needs to be solved with mixed strategy Nash equilibrium with the probability that vendor will take an action as low as around 0.4\% of the time. An important aspect that this paper gives us an insight about is that DRM is a negotiating game. In a repeated game where consumer and vendor play this game repetitively, the outcome is the same as a one-shot game. The equilibrium of this game has to be mixed. Both parties negotiate, indirectly through the repetitive nature of the game, until it is such that consumer’s behavior drives vendor to take an action against them meanwhile vendor’s action will force consumer to stop sharing. Hence, they conclude that the in the repeated game the equilibrium would be such that no matter the vendor imposes technological protection or not, the consumer will not share the content and the vendor will take action against piracy, even though they rarely do so.\\
 
 In ``Who should own access rights? A game-theoretical approach to striking the optimal balance in the debate over Digital Rights Management'' by Yu-Lin Chang \cite{chang2007}, he approaches the problem in a very interesting way. The problem could not be solved by only looking at one aspect, namely, economics but need to be approached carefully on various sides. Chang introduces the concept of ``the notation of balance'' and argues that the way to solve this problem of implementing DRM is neither to give full restriction to the firm nor totally free access of the content to the public. He claims that it is about the right balance of the rights distributed between the two parties. While DRM in the past tended to limit the use of users who purchased the content, it fails miserably. At the same time, the era of free access when internet spread worldwide caused the information industry to lose a lot of money and was in trouble. The Nash equilibrium is when there is a correct amount of balance between the consumer’s right and the firm’s right to access to the content. Chang offers the solution that happens to be a prisoner’s dilemma where the Nash equilibrium is better for the society as a whole but is not the best for each player in the game.\\
 

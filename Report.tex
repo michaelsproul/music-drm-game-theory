@@ -82,7 +82,7 @@ University of Sydney
 
 \vspace*{1cm}
 \begin{abstract}
-Digital Rights Management, DRM, is a controversial mechanism for controlling the use of digital media. It once enjoyed popularity in the music industry, but has recently fallen into disuse and is now almost entirely absent. It persists in the video game industry however, and in this paper we seek to assess why this is the case, and how the market might evolve in the future. We provide a game theoretic model of a digital market for $m$ firms (product vendors) and $n$ artists. Consumers are modelled in the payoff functions of the players, and the firms can choose whether to enable DRM. Through backwards induction we derive the equilibria that exist for different settings of the game parameters, and apply quantitative data to explain the failure of DRM in the music industry. Finally, we apply our model to the video game industry, and find that the continued success of DRM is likely.
+Digital Rights Management, DRM, is a controversial mechanism for controlling the use of digital media. It once enjoyed popularity in the music industry, but has recently fallen into disuse and is now almost entirely absent. It persists in the video game industry however, and in this paper we seek to assess why this is the case, and how the market might evolve in the future. We provide a game theoretic model of a digital market for $m$ firms (product vendors) and $n$ artists. Consumers are modelled in the payoff functions of the players, and the firms can choose whether to enable DRM. Through backwards induction we derive the equilibria that exist for different settings of the game parameters, and apply quantitative data to explain the failure of DRM in the music industry.
 \end{abstract}
 
 \vfill
@@ -207,7 +207,7 @@ From here, record label’s profit function for any artist being the same for al
 
 $l_{F_i}$ standing for the number of artist under contract with the record label, $l_{F_i} \in [0, n]$, such that $\sum_{i = 1}^m l_i = n$, $n$ being the total number of artists in the music industry market, $m$ being the number of firms (in our case, 4).\\
 
-The other players’ payoffs, namely the artists’ payoffs, are defined similarly. Specifically, their album and concert demands are the same as the record labels’ ones, and their profit per unit are the complement of the record label’s revenue, i.e. the share of the concert ticket or album price the record label accept to give to them, $\alpha P_{F_i, A}$ or $\alpha_T k P_{F_i, A}$. Eventually, making an album or putting on a concert is not without costs to the artist, so the constants $C_A$ and $C_T$, where $C_A, C_T > 0$,  encode the cost of producing an album and a concert series respectively. Those two finals parameters are assumed to be fixed cost defined exogenously\footnote{
+The other players’ payoffs, namely the artists’ payoffs, are defined similarly. Specifically, their album and concert demands are the same as the record labels’ ones, and their profit per unit are the complement of the record label’s revenue, i.e. the share of the concert ticket or album price the record label accept to give to them, $\alpha P_{F_i, A}$ or $\alpha_T k P_{F_i, A}$. Finally, making an album or putting on a concert is not without costs to the artist, so the constants $C_A$ and $C_T$, where $C_A, C_T > 0$,  encode the cost of producing an album and a concert series respectively. Those two finals parameters are assumed to be fixed cost defined exogenously\footnote{
 This assumption is consistent with the reality of the music market industry since, most of the time, artists sign a contract with a record label stipulating a priori how much the production of an album will cost to them, and this cost does not evolve with the number of album sold.
 }. Formally, the payoff function of a given artist, $M$, is given by:
 \begin{eqnarray}
@@ -240,7 +240,7 @@ D_A = 1 + \delta \drminf
 \label{Eq:DA}
 \end{eqnarray}
 
-With $\delta$ a binary variable, $\delta \in \{0, 1\}$, equal to one when DRM systems are enforced, $\psi$ the number of illegal download for a record label, and $\gamma$ the consumers’ disutility of purchasing an album with DRM in it, $\psi > 0, \gamma \geq 0$. DRM can indeed be viewed as a constraint from the consumer’s point of view, reducing his or her willingness to pay for a given album. Eventually, $\epsilon$ represents the effectiveness of DRM to fight illegal piracy, $0 \leq \epsilon \leq 1$, such that if $\epsilon = 1$, DRM systems are extremely effective and illegal download no longer exists. Therefore, $\drminf$ describes the tradeoff record labels are facing when they are deciding whether they should implement DRM systems.\\
+With $\delta$ a binary variable, $\delta \in \{0, 1\}$, equal to one when DRM systems are enforced, $\psi$ the number of illegal download for a record label, and $\gamma$ the consumers’ disutility of purchasing an album with DRM in it, $\psi > 0, \gamma \geq 0$. DRM can indeed be viewed as a constraint from the consumer’s point of view, reducing his or her willingness to pay for a given album. Finally, $\epsilon$ represents the effectiveness of DRM to fight illegal piracy, $0 \leq \epsilon \leq 1$, such that if $\epsilon = 1$, DRM systems are extremely effective and illegal download no longer exists. Therefore, $\drminf$ describes the tradeoff record labels are facing when they are deciding whether they should implement DRM systems.\\
 
 Similarly:
 \begin{eqnarray}
@@ -250,7 +250,7 @@ D_T = 1 - \delta \theta
 
 Where $\theta$ is the number of tickets non-sold due to the presence of DRM on firms’ products, coming both from the fact that consumers do not want to go to concerts of artist who have DRM on their music and from the fact that the music of artists with DRM systems can be less spread due to more difficulties to illegally download the product, generating therefore less fans, $\theta > 0$.\\
 
-Eventually, implementing DRM systems has a cost:
+Finally, implementing DRM systems has a cost:
 \begin{eqnarray}
 C_\drm = \frac{\rho}{l_{F_i} + 1}
 \label{Eq:CostDRM}
@@ -282,7 +282,6 @@ Regarding the representative artist’s payoff, the impact of DRM on his or her 
 
 Once more, this formal description is useful to derive players’ strategy set. Firms, acting first, choose $\delta \in \{0, 1\}$, followed by the representative artist, deciding to sign a contract with one of the four labels, $F_i$, $F_i \in \{F_1, F_2, F_3, F_4\}$.
 
-\pagebreak
 \section{Solutions}
 
 \subsection{Game 1: Pricing Game}
@@ -355,19 +354,32 @@ To compute the critical value of $\epsilon$ at which artist preferences flip, we
 Solving for $\epsilon$ we have that DRM is artist-beneficial when:
 \begin{eqnarray}
 \epsilon > \frac{1}{\psi} \left( \frac{\theta \artistticket{1}{i}}{\artistalbum{1}{i}} + \gamma \right)
+\label{Eq:EpsilonStar}
 \end{eqnarray}
 
 When $\epsilon$ is equal to the term on the right, which we shall call $\epsilon^*$, the payoffs are equal and the artists are DRM ambivalent. Combined with the characterisations from above, and values for $\psi, \gamma, \theta$ and $\rho$ this allows us to predict the equilibrium behaviour of a DRM system where $\epsilon$ is uncertain.\\
 
 Conceptually, the tension between artists and firms over DRM is a consequence of varying valuations of albums and concerts, and the impact that DRM has on both. Whilst it is possible (and even likely), for DRM to have little impact on concerts, this can have a profound impact on the dynamics of the game if arists receive more of their revenue from concerts ($\alpha_T \gg \alpha_A$), and therefore feel the impact of DRM stronger than the firms. Conversely, firms are more likely to be negatively effected by DRM if $\drminf$ is large, and firms draw most of their revenue from album sales ($\alpha_T \ll \alpha_A$). This interaction is discussed further in section \ref{Sec:Estimates}.
 
-\pagebreak
 \section{Estimation of Parameters} \label{Sec:Estimates}
 
 \subsection{Equilibria in the Music Industry}
 
+We are finally in a position to analyse the music industry in terms of our model. Unfortunately, with the ``realistic'' parameters of the previous section, our model falls apart. We discovered this too late before the deadline to ammend the model, so instead present a model with an altered set of paramaters, to highlight the kind of analysis we would like to do.\\
 
+Firstly, the paramaters. It was found that values of $k > 2$, in combination with values of $a$ and $\sigma$ within an order of magnitude of each other (to produce $P_A \approx 10$), cause the payoff for the artists to be negative, $\artistpayoff{1}{i} < 0$. This is unreasonable as it fails to reflect reality, and more worringly, propogates negative payoffs throughout the model which undermine the incentive for firms to attract artists. To remedy this problem, we altered the parameters as follows:
 
+\begin{eqnarray*}
+k & = & 1.8\\
+\sigma_A & = & \sigma_T = 4\\
+a_A & = & 100\\
+a_T & = & 150\\
+C_A & = & C_T = 2
+\end{eqnarray*}
+
+These parameters, whilst unrealistic, at least provide a price close to \$10, $P_A = 18.3$, and positive payoffs for the artists, $\artistalbum{1}{i} \approx 104$. All other paramaters were set at their values from the first part of this section.\\
+
+Using \eqref{Eq:EpsilonStar} to compute the critical value of $\epsilon$ yields $\epsilon^* \approx 0.0829$, meaning that DRM only has to be 8.29\% effective in converting pirates to be econmically viable for artists. Unfortunately, the model is too broken to allow a sensible computation of $\eta$. However, given the lack of DRM in the music industry, and the fact that the only equilibria that permit this occur when artists prefer $\nodrm$, our model predicts the true value of $\epsilon$ to be less than $\epsilon^* \approx 0.0829$. Although this figure is quite low, it is within the realm of possibility - perhaps DRM really is woefully ineffective. Further improvements to the model would be required to make a stronger judgement.
 
 \section{Extensions to the Model} \label{Sec:Extensions}
 

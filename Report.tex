@@ -16,6 +16,11 @@
 \pagestyle{empty}
 \numberwithin{equation}{section}
 
+% Footnodes.
+\makeatletter
+\renewcommand\@makefntext[1]{\leftskip=2em\hskip-2em\@makefnmark#1}
+\makeatother
+
 % Abstract definition.
 \renewenvironment{abstract}
  {\normalsize
@@ -54,7 +59,7 @@
 \newcommand{\drminf}{(\psi \varepsilon - \gamma)}
 
 % Ceiling commands.
-\def\lc{\left\lceil}
+\def\lc{\left\lceil}   
 \def\rc{\right\rceil}
 
 \begin{document}
@@ -110,7 +115,17 @@ Over the past decade and a half, the music industry has implemented two types of
 
 The primary focus of this paper is the use of DRM in internet music: music that was legally distributed online through stores such as the iTunes Store. This type of DRM restricts the use of the file, often limiting its use to a player provided by the store and linked to a specific user account. Although it was an industry standard in the first decade of the 21st century, some of the largest online music stores have moved away from DRM usage. In the case of Musicload.de, one of Europe's largest internet music retailers, openly expressed their disapproval of its usage in music \cite{vernik2011}.\\
 
-Our goal is to model the relationship between the musicians (artists), record labels (firms), and listeners (consumers) and see how the equilibria relate to historical reality. We hope that by effectively modeling the decisions and payoffs around DRM in the music industry will allow us to create models for DRM usage in other industries that are accurate and predictive of future behavior.
+Our goal is to model the relationship between the musicians (artists), record labels (firms), and listeners (consumers) and see how the equilibria relate to historical reality. We hope that by effectively modeling the decisions and payoffs around DRM in the music industry will allow us to create models for DRM usage in other industries that are accurate and predictive of future behavior.\\
+
+This paper is constructed as followed. Section 2 review the existing
+game theoretic literature about DRM systems. Section 3 presents the
+game as well as the players' payoffs through a simple microeconomic
+model. Section 4 derives the theoretical solutions for the game, while
+section 5 applies actual empirical data to see how the model and the
+game fit the actual music industry market. Section 6 presents the
+possible extension of the game and gives some insights about their
+solutions. Finally, section 7 analyzes the implications of our results
+for the video game industry.
 
 \section{Literature Review}
 
@@ -135,7 +150,7 @@ In the first game, the first players to move are the firms, competing against ea
 
 Artists, observing prices fixed by record labels, decide then with which firms they want to sign a contract. For simplicity, they cannot quit the market, or be independent.\\
 
-Follow this first game the DRM game, in which the album and concert ticket prices taken into account by the players are the ones determined in the first game. In this new game, firms choose first whether they want to enforce DRM systems in their product. A record label cannot decide to implement DRM only for some artists.  Enforcing DRM systems can have two opposite effects on a firm's profit. On one hand, by decreasing the number of illegal download, DRM increases the demand for album. On the other hand, consumers can have an aversion for album with DRM inside, triggering a decrease in the album demand. Moreover, artists can also dislike DRM since it could potentially decreases the exposure of their work, and, ergo, the number of people going to their concerts. The effect of DRM on firms' and artists' profit depends therefore on the relative impact of these two effects.
+Follow this first game the DRM game, in which the album and concert ticket prices taken into account by the players are the ones determined in the first game. In this new game, firms choose first whether they want to enforce DRM systems in their product. A record label cannot decide to implement DRM only for some artists.  Enforcing DRM systems can have two opposite effects on a firm's profit. On one hand, by decreasing the number of illegal download, DRM increases the demand for album. On the other hand, consumers can have an aversion for album with DRM inside, triggering a decrease in the album demand. Moreover, artists can also dislike DRM since it could potentially decreases the exposure of their work, and, ergo, the number of people going to their concerts. The effect of DRM on firms' and artists' profit depends therefore on the relative impact of these two effects.\\
 
 % EFG figure.
 \begin{figure}[h]
@@ -144,7 +159,7 @@ Follow this first game the DRM game, in which the album and concert ticket price
 \caption{Extensive Form Game for the Whole Game, from a Record Label's Perspective.}
 \end{figure}
 
-Figure 1 summarizes the previously described game configuration into an extensive form game. The dash box around the first two nodes represents the separation between the two games. Note that, for simplicity purpose, this figure is not the entire extensive form game, but the description of the game from a record label's point of view. Specifically, after deciding of a price, $P_{A, F_i}$, the artist can decide whether to go with this given record label, $F_i$, or any other firms, $F_j$, $i \ne j$. In the second game, the same label chooses whether enforcing DRM systems in its products, and the artist, once more, decides if he or she wants to go with this firm. If the artist opts for another firm, $F_j$, $F_i$'s profit is zero. If, on the contrary, the artist selects $F_i$, $F_i$'s payoff is positive, as described in the following section.
+Figure 1 summarizes the previously described game configuration into an extensive form game. The dash box around the first two nodes represents the separation between the two games. Note that, for simplicity's sake, this figure is not the entire extensive form game, but the description of the game from a record label's point of view. Specifically, after deciding of a price, $P_{A, F_i}$, the artist can decide whether to go with this given record label, $F_i$, or any other firms, $F_j$, $i \ne j$. In the second game, the same label chooses whether enforcing DRM systems in its products, and the artist, once more, decides if he or she wants to go with this firm. If the artist opts for another firm, $F_j$, $F_i$'s profit is zero. If, on the contrary, the artist selects $F_i$, $F_i$'s payoff is positive, as described in the following section.
 
 \subsection{Payoff Functions}
 
@@ -162,7 +177,7 @@ Therefore, the profit of a given firm, $F_i$, for a particular artist (musician)
 \begin{eqnarray}
 \pi_{F_i, M} = \pi_{F_i, M, A} + \pi_{F_i, M, T}
 \label{Eq:FirmTotalPayoff}
-\end{eqnarray}
+\end{eqnarray}  
 
 Where $\pi_{Fi, M, A}$ is the record label's profit depending on the quantity of album sold for an artist $M$, and $\pi_{F_i, M, T}$ the record label's profit varying in function of the number of concert tickets sold for the same artist $M$. Specifically:
 \begin{eqnarray}
@@ -217,7 +232,7 @@ This assumption is consistent with the reality of the music market industry sinc
 	+ (\alpha_T - \sigma_T k P_{F_i, A}) \alpha_T k P_{F_i, A} - C_T
 \end{eqnarray}
 
-This formal description of the model is useful to define the player’s strategy set. The four firms, $F_i$, playing first, chooses $P_{F_i, A} > 0$, followed by the artists, signing a contract with a record label $F_i, i \in [0, m], where m = 4$. Because all artists have the same payoff function, a representative artist is designated as the only player for the artist category.
+This formal description of the model is useful to define the player’s strategy set. The four firms, $F_i$, playing first, chooses $P_{F_i, A} > 0$, followed by the artists, signing a contract with a record label $F_i, i \in [1, m]$, where $m = 4$. Because all artists have the same payoff function, a representative artist is designated as the only player for the artist category. 
 
 \subsubsection{Game 2: DRM Game}
 
@@ -276,7 +291,6 @@ Substituting \eqref{Eq:DA}, \eqref{Eq:DT} and \eqref{Eq:CostDRM} into \eqref{Eq:
 \end{eqnarray}
 
 Regarding the representative artist’s payoff, the impact of DRM on his or her profit is the same as the one for the record labels. Formally, his or her new payoff function is given by:
-
 \begin{eqnarray}
 \artistpayoff{2}{i} = (1 + \delta \drminf) \artistalbum{1}{i} - C_A +
 						(1 - \delta \theta) \artistticket{1}{i} - C_T
@@ -319,7 +333,7 @@ This follows from the fact that the payoff from the first game is fixed, and tha
 
 First consider the two cases where the payoffs are different. In these cases, the best response of the firms is to set $\delta$ according to the artists' preference. It is impossible to have an equilibrium where the firms set $\delta$ against the artists' preference, as this would result in one firm deviating and stealing the entire market. Hence the only possible equilibria involve all the firms setting $\delta$ in the way that is optimal for the artists. As before, the artists then have no way to differentiate the firms and can choose between them freely, for a total of $m^n$ Nash Equilibria in pure strategies.\\
 
-This isn't quite the whole story however, as the firms also pay a cost for implementing DRM, and may be forced to disable DRM if this cost is prohibitive. Accumulating more artists reduces the cost of DRM, and hence for each system, there is a number of players $\eta$, such that firms with $\eta$ or more players are better off if they implement DRM. Computing the value of $\eta$ is done by equating the two firm payoffs:
+This is not quite the whole story however, as the firms also pay a cost for implementing DRM, and may be forced to disable DRM if this cost is prohibitive. Accumulating more artists reduces the cost of DRM, and hence for each system, there is a number of players $\eta$, such that firms with $\eta$ or more players are better off if they implement DRM. Computing the value of $\eta$ is done by equating the two firm payoffs:
 \begin{eqnarray*}
 \firmpayoff{2}{i}(\delta = 1, l_i = \eta) & = & \firmpayoff{2}{i}(\delta = 0, l_i = \eta)\\
 \eta \left[\left(1 + \delta \drminf\right) \firmalbum{1}{i} + (1 - \delta \theta) \firmticket{1}{i}\right] - \frac{\rho}{\eta + 1} & = & \eta (\firmalbum{1}{i} + \firmticket{1}{i})
@@ -363,9 +377,9 @@ When $\varepsilon$ is equal to the term on the right, which we shall call $\vare
 
 Conceptually, the tension between artists and firms over DRM is a consequence of varying valuations of albums and concerts, and the impact that DRM has on both. Whilst it is possible (and even likely), for DRM to have little impact on concerts, this can have a profound impact on the dynamics of the game if arists receive more of their revenue from concerts ($\alpha_T \gg \alpha_A$), and therefore feel the impact of DRM stronger than the firms. Conversely, firms are more likely to be negatively effected by DRM if $\drminf$ is large, and firms draw most of their revenue from album sales ($\alpha_T \ll \alpha_A$). This interaction is discussed further in section \ref{Sec:Estimates}.
 
-\pagebreak
-
 \section{Estimation of Parameters} \label{Sec:Estimates}
+
+\subsection{Estimation of Empirical Data for the Music Industry}
 
 This section assigns values to the parameters previously presented,
 in accordance with empirical data, so that it is possible to observe
@@ -547,7 +561,7 @@ cost of the investment and hence cannot choose an infinite amount
 of investment.\\
 
 Backward induction is once more used to solve this game. Several scenarios
-are available.
+are available. 
 \begin{enumerate}
 \item First of all, if $\varepsilon_{F_{i},max}<\varepsilon*,$ as presented
 by $f_{1}(\rho)$ in figure \ref{Fig:EpsilonEvolution}, the record label $F_{i}$ will decide to not implement DRM systems.
@@ -561,13 +575,13 @@ at the beginning of the game, such that $l_{F_{i}}=\frac{n}{4}$,
 all firms could decide to implement DRM systems if the amount of investment
 necessary to achieve $\varepsilon_{F_{i}}=\varepsilon^*$ does not overwhelm
 the benefits of DRM. Otherwise, all firms decide to not implement
-DRM in their albums.
+DRM in their albums. 
 \item If the distribution of artists is not uniform, such that $l_{F_{1}}>l_{Fj},$$j=2,3,4$,$F_{1}$, for a same amount of investment necessary to achieve the critical
 value of DRM effectiveness, could be the only firm able to implement
 DRM systems. In this case, where the three other firms do not implement
 DRM, $F_{1}$would catch all the artists, leaving the three other
 record labels with a payoff of zero. This non-symmetric equilibrium
-could have from one to four firms choosing to implement DRM systems.
+could have from one to four firms choosing to implement DRM systems. 
 \end{enumerate}
 \end{enumerate}
 
@@ -583,9 +597,9 @@ put into question. It is indeed very likely that, back in the end
 of the 1990s, record labels were unsure about the expected effect
 these new protection systems would have on illegal piracy. From here
 a new game with imperfect information can therefore be derived. For
-simplicity,$\varepsilon$ is once more defined exogenously; nevertheless,
+simplicity, $\varepsilon$ is once more defined exogenously; nevertheless,
 the effectiveness of DRM is no longer hold constant over time, as
-described by the$\varepsilon_{t}$ curve in figure \ref{Fig:Epsilon}. The concavity
+described by the $\varepsilon_{t}$ curve in figure \ref{Fig:EpsilonEvolution}. The concavity
 of the curve is due to (a) the increase of DRM effectiveness over
 time - mainly thanks to investment in R\&D, even though $\varepsilon$
 is in this model exogenous (b) the improve of consumers' knowledge
@@ -602,10 +616,10 @@ The blue curve represents the actual effectiveness of DRM, in time
 t. The green curve shows the firms' expectations based on obserations
 about DRM effectiveness in t-1, so that $E(\varepsilon_{t}-\mu)=\varepsilon_{t-1}$.\\
 
-Eventually, the purple curve stands for the actual firms' expectations,
+Finally, the purple curve stands for the actual firms' expectations,
 record labels being assumed to be optimistic about the impact of DRM
 over illegal piracy - this overestimation of $\varepsilon$ being
-represented by the parameters $\mu.$Followed this first step two
+represented by the parameters $\mu$. Followed this first step two
 possible set of settings concerning the artists' beliefs and actions.
 In the first one, artists completly trust the estimation of their
 record label and, hence, based their choice of record labels on firms'
@@ -673,6 +687,11 @@ Digitally distributed video games are released with an array of types of DRM tha
 
 \pagebreak
 
+\bibliographystyle{plain}
+\bibliography{References}
+
+\pagebreak
+
 \section{Appendix}
 
 \subsection{Estimation of $\sigma_{A}$and $\sigma_{T}$}
@@ -706,7 +725,7 @@ of concert tickets sold following a one-unit variation in the concert
 ticket price, knowing that the price elasticity of concert ticket
 demand is almost inelastic, here quantifies as 0.5\%; formally:
 \large
-\begin{eqnarray*}
+\begin{eqnarray*} 
 \left|\frac{\frac{a_{T-\sigma_{T}(P'_{T})-(a_{T}-\sigma_{T}(P_{T}))}}{a_{T}-\sigma_{T}(P_{T})}}{\frac{P_{T}'-P_{T}}{P_{T}}}\right|=\left|\frac{0.5}{100}\right|
 \end{eqnarray*}
 \normalsize
@@ -831,10 +850,5 @@ curve; formally, $\lim_{t\rightarrow\infty}E_{F}{}_{i}(\varepsilon_{t})-\varepsi
 All those assumptions about the firms' and artists' beliefs are shown
 in section \ref{Sec:Extensions}, figure \ref{Fig:EpsilonGuessing}. Insights about solutions for this game are
 also presented in this previous section.
-
-\pagebreak
-
-\bibliographystyle{plain}
-\bibliography{References}
 
 \end{document}

@@ -49,7 +49,7 @@
 \newcommand{\doublederiv}[2]{\frac{d^2 #1}{d {#2}^2}}
 
 % DRM influence on album demand.
-\newcommand{\drminf}{(\psi \epsilon - \gamma)}
+\newcommand{\drminf}{(\psi \varepsilon - \gamma)}
 
 % Ceiling commands.
 \def\lc{\left\lceil}   
@@ -240,7 +240,7 @@ D_A = 1 + \delta \drminf
 \label{Eq:DA}
 \end{eqnarray}
 
-With $\delta$ a binary variable, $\delta \in \{0, 1\}$, equal to one when DRM systems are enforced, $\psi$ the number of illegal download for a record label, and $\gamma$ the consumers’ disutility of purchasing an album with DRM in it, $\psi > 0, \gamma \geq 0$. DRM can indeed be viewed as a constraint from the consumer’s point of view, reducing his or her willingness to pay for a given album. Finally, $\epsilon$ represents the effectiveness of DRM to fight illegal piracy, $0 \leq \epsilon \leq 1$, such that if $\epsilon = 1$, DRM systems are extremely effective and illegal download no longer exists. Therefore, $\drminf$ describes the tradeoff record labels are facing when they are deciding whether they should implement DRM systems.\\
+With $\delta$ a binary variable, $\delta \in \{0, 1\}$, equal to one when DRM systems are enforced, $\psi$ the number of illegal download for a record label, and $\gamma$ the consumers’ disutility of purchasing an album with DRM in it, $\psi > 0, \gamma \geq 0$. DRM can indeed be viewed as a constraint from the consumer’s point of view, reducing his or her willingness to pay for a given album. Finally, $\varepsilon$ represents the effectiveness of DRM to fight illegal piracy, $0 \leq \varepsilon \leq 1$, such that if $\varepsilon = 1$, DRM systems are extremely effective and illegal download no longer exists. Therefore, $\drminf$ describes the tradeoff record labels are facing when they are deciding whether they should implement DRM systems.\\
 
 Similarly:
 \begin{eqnarray}
@@ -262,7 +262,7 @@ Equation \eqref{Eq:FirmTotalPayoffDRM} can be seen in terms of percentage. If a 
 Section \ref{Sec:Estimates} estimates those parameters and substitutes them into the profit functions, which can help to better understand the new payoff function if this is not already the case.
 }.\\
 
-In order to not add further complexity to this model, $\gamma$, $\psi$ and $\epsilon$ are assumed to be constant and equal for all firms. Of particular interest for our topic, $\epsilon$ is defined exogenously, such that record labels have no control over the effectiveness of DRM. This strong assumption is discussed in section \ref{Sec:Extensions}, where possible extensions of the model are presented.\\
+In order to not add further complexity to this model, $\gamma$, $\psi$ and $\varepsilon$ are assumed to be constant and equal for all firms. Of particular interest for our topic, $\varepsilon$ is defined exogenously, such that record labels have no control over the effectiveness of DRM. This strong assumption is discussed in section \ref{Sec:Extensions}, where possible extensions of the model are presented.\\
 
 Substituting \eqref{Eq:DA}, \eqref{Eq:DT} and \eqref{Eq:CostDRM} into \eqref{Eq:FirmTotalPayoffDRM} yields:
 \begin{eqnarray}
@@ -306,11 +306,11 @@ P_A^* = \frac{\alpha_A a_A + k \alpha_T a_T}{2(\alpha_A \sigma_A + k \alpha_T \s
 
 \subsection{Game 2: DRM Game}
 
-The solution to the DRM game has a similar structure to that of the pricing game. Once again, the artists control the behaviour of the firms, and are free to choose between them. The difference is that the DRM game is paramaterised by a number of constants: $\psi$, $\epsilon$, $\gamma$ and $\rho$, which generate several types of systems. In this section we explore the nature of equilibria in these different systems.\\
+The solution to the DRM game has a similar structure to that of the pricing game. Once again, the artists control the behaviour of the firms, and are free to choose between them. The difference is that the DRM game is paramaterised by a number of constants: $\psi$, $\varepsilon$, $\gamma$ and $\rho$, which generate several types of systems. In this section we explore the nature of equilibria in these different systems.\\
 
 Given the payoff function for the artists as follows, note that the artists will have a strict preference for DRM or $\overline{\text{DRM}}$:
 \begin{eqnarray*}
-\artistpayoff{2}{i} = (1 + \delta (\psi \epsilon - \gamma)) \artistalbum{1}{i} + (1 - \delta \theta) \artistticket{1}{i}
+\artistpayoff{2}{i} = (1 + \delta (\psi \varepsilon - \gamma)) \artistalbum{1}{i} + (1 - \delta \theta) \artistticket{1}{i}
 \end{eqnarray*}
 
 This follows from the fact that the payoff from the first game is fixed, and that $\delta$ is a binary variable. Comparing the payoff with DRM to the payoff without, there are three possiblities: either DRM is favourable, $\nodrm$ is favourable, or the payoffs are equal, in which case the artists are ambivalent.\\
@@ -343,25 +343,134 @@ In this case, the firm preference is irrelevant. At equilibrium, all firms disab
 
 In the case where artists are ambivalent to DRM, equilibria are characterised by some firms with DRM enabled and $l_i \geq \eta$, and others with DRM disabled and $\eta < \eta$. This is similar to the case where artists prefer DRM and DRM is firm-moderate, except that firms without DRM can posess artists at equilibrium.\\
 
-Finally, we come to describing the parametrisations that cause artists to prefer one DRM state over another. It would take many pages to quantify the influence of all three parameters influencing artists ($\psi, \epsilon$, $\gamma$ and $\theta$), so we concern ourselves only with $\epsilon$ - the effectiveness of DRM in preventing piracy - as it is the least well known. In the next section we provide real-world estimates of the other parameters.\\
+Finally, we come to describing the parametrisations that cause artists to prefer one DRM state over another. It would take many pages to quantify the influence of all three parameters influencing artists ($\psi, \varepsilon$, $\gamma$ and $\theta$), so we concern ourselves only with $\varepsilon$ - the effectiveness of DRM in preventing piracy - as it is the least well known. In the next section we provide real-world estimates of the other parameters.\\
 
-To compute the critical value of $\epsilon$ at which artist preferences flip, we solved the following inequation involving the payoffs with and without DRM:
+To compute the critical value of $\varepsilon$ at which artist preferences flip, we solved the following inequation involving the payoffs with and without DRM:
 \begin{eqnarray*}
 \artistpayoff{2}{i}(\delta = 1) & > & \artistpayoff{2}{i}(\delta = 0)\\
 (1 + \delta \drminf) \artistalbum{1}{i} + (1 - \delta \theta) \artistticket{1}{i} & > & \artistalbum{1}{i} + \artistticket{1}{i}
 \end{eqnarray*}
 
-Solving for $\epsilon$ we have that DRM is artist-beneficial when:
+Solving for $\varepsilon$ we have that DRM is artist-beneficial when:
 \begin{eqnarray}
-\epsilon > \frac{1}{\psi} \left( \frac{\theta \artistticket{1}{i}}{\artistalbum{1}{i}} + \gamma \right)
+\varepsilon > \frac{1}{\psi} \left( \frac{\theta \artistticket{1}{i}}{\artistalbum{1}{i}} + \gamma \right)
 \label{Eq:EpsilonStar}
 \end{eqnarray}
 
-When $\epsilon$ is equal to the term on the right, which we shall call $\epsilon^*$, the payoffs are equal and the artists are DRM ambivalent. Combined with the characterisations from above, and values for $\psi, \gamma, \theta$ and $\rho$ this allows us to predict the equilibrium behaviour of a DRM system where $\epsilon$ is uncertain.\\
+When $\varepsilon$ is equal to the term on the right, which we shall call $\varepsilon^*$, the payoffs are equal and the artists are DRM ambivalent. Combined with the characterisations from above, and values for $\psi, \gamma, \theta$ and $\rho$ this allows us to predict the equilibrium behaviour of a DRM system where $\varepsilon$ is uncertain.\\
 
 Conceptually, the tension between artists and firms over DRM is a consequence of varying valuations of albums and concerts, and the impact that DRM has on both. Whilst it is possible (and even likely), for DRM to have little impact on concerts, this can have a profound impact on the dynamics of the game if arists receive more of their revenue from concerts ($\alpha_T \gg \alpha_A$), and therefore feel the impact of DRM stronger than the firms. Conversely, firms are more likely to be negatively effected by DRM if $\drminf$ is large, and firms draw most of their revenue from album sales ($\alpha_T \ll \alpha_A$). This interaction is discussed further in section \ref{Sec:Estimates}.
 
+\pagebreak
+
 \section{Estimation of Parameters} \label{Sec:Estimates}
+
+This section assigns values to the parameters previously presented,
+in accordance with empirical data, so that it is possible to observe
+whether the solutions derived in the previous section are consistent
+with the real music industry market. Knowing that the price elasticity
+of the album demand is 2.8\% {[}Gast, 2002{]}, the average slope of
+the album demand function has been estimated to 0.288:
+\begin{eqnarray*}
+\sigma_{A}=0.288
+\footnote{The estimation method is presented in appendix, section X.X%
+}
+\end{eqnarray*}
+
+Similarly, the slope of the concert tickets demand function, knowing
+that the demand for concerts is almost inelastic in prices {[}Courty,
+2009{]}, has been estimated to 0.01:\\
+
+\begin{eqnarray*}
+\sigma_{T}=0.011
+\footnote{The estimation method is presented in appendix, section X.X%
+}
+\end{eqnarray*}
+
+The sharing rules parameters are easier to estimate, several studies
+and data being available. Specifically, according to David McCandless
+{[}McCandless, 2010{]}, the artists got as much as \$0.94 when the
+album priced \$9.99 is sold and they receive \$0.09 for a track download
+worth \$0.99. Hence, $\alpha_{A},$ the share amount of what the artists
+get, can be estimated as:
+\begin{eqnarray*}
+\alpha_{A}=0.1
+\end{eqnarray*}
+
+Even though the range of the concert ticket sharing rule is larger
+than the one of the album sharing rule, the former evolving within
+the spectrum 65\%-90\% depending on the artist and the agreement between
+the two (or more) parties, the share that the artists get from a concert
+ticket sold is on average 74\% of its price {[}Michael, 2014{]}:
+
+\begin{eqnarray*}
+\alpha_{T} = 0.74
+\end{eqnarray*}
+
+Estimating the coefficient relating album and concert ticket prices
+through regression analysis is complex since the standard deviation
+of album prices is way smaller, almost nonexistent, compared to the
+standard deviation of concert ticket prices. Instead, album and concert
+ticket prices have been aggregated, and these parameters have been estimated
+as the average concert ticket price over the average album price,
+such that:
+
+\begin{eqnarray*}
+k=3.4
+\end{eqnarray*}
+
+Finally, $a_{A}$ and $a_{T}$ remain unspecified, as well as $C_{A}$ and
+$C_{T}$, due to lack of data available. The next section fixes arbitrarily
+those constants in order to make the result of this paper clear and
+straightforward for everyone. Hence, the new payoff function can be
+restated as:
+
+\begin{eqnarray*}
+\pi_{F_{i}} & = & l_{F_{i}}((a_{A}-0.288P_{A,F_{i}})(0.9P_{A,F_{i}})+(a_{T}-0.037P_{A,F_{i}})(0.88P_{A,F_{i}}))\\
+\pi_{M_i} & = & (a_{A}-0.288P_{A,F_{i}})(0.1P_{A,F_{i}})-C_{A}+(a_{T}-0.037P_{A,F_{i}})(3.06P_{A,F_{i}})-C_{T}
+\end{eqnarray*}
+
+Regarding the second game, the removal of DRM increases the digital
+sales by 10\% according to Laurina Zhang {[}Zhang, 2013{]}, implying
+that the disutility of DRM should be rounded up to 10\%, or:
+\begin{eqnarray*}
+\gamma=0.1
+\end{eqnarray*}
+
+Moreover, following the estimation made by the research from the NPD
+Group, Inc., in 2009 {[}NPD, 2009{]}, only 37\% of the songs attained
+by US consumers were paid for, implying that 63\% of those were illegally
+obtained. Removing entirely illegal download, if DRM systems were
+perfectly effective, would then increase the demand for album by 70\%.
+Ergo:
+\begin{eqnarray*}
+\psi=1.7
+\end{eqnarray*}
+
+Even though clear and straightforward empirical data about the negative
+impact of DRM on ticket concerts sales have not been found, this paper
+assumes that $\theta=0.05$. Note that, besides capturing the direct
+effect of DRM on concerts, this parameter could also represents the
+various indirect negative impact of the presence of DRM on artists’
+payoffs; one of them could for instance be some artists’ ideals about
+the public sharing of albums\footnote{
+For instance, The Grateful Dead allowed their fans to record their
+concerts and then to distribute thoserecords to other people. Even
+more, some of their albums were totally free.
+}.\\
+
+Finally, in addition to previous unestimated parameters,$\rho$ is
+not defined due to lack of empirical information. Adding together
+all those new estimations brings new payoff functions, defined as:
+\begin{eqnarray*}
+\pi_{F_{i}}=l_{F_{i}}((1+\delta(1.7\varepsilon-0.1))(\pi_{F_{i},A})+(1-\delta0.05)(\pi_{F_{i},T}))-\delta(\frac{\rho}{l_{Fi}+1})\\
+\pi_{m}=(1+\delta(1.7\varepsilon-0.1))(\pi_{m,A})-C_{A}+(1-\delta0.05)(\pi_{m,T})-C_{T}
+\end{eqnarray*}
+
+
+From here, the solutions derived in the previous section can be adjusted
+to empirical data, allowing to observe whether the critical value
+of $\varepsilon$ is achievable.
 
 \subsection{Equilibria in the Music Industry}
 
@@ -379,7 +488,7 @@ C_A & = & C_T = 2
 
 These parameters, whilst unrealistic, at least provide a price close to \$10, $P_A = 18.3$, and positive payoffs for the artists, $\artistalbum{1}{i} \approx 104$. All other paramaters were set at their values from the first part of this section.\\
 
-Using \eqref{Eq:EpsilonStar} to compute the critical value of $\epsilon$ yields $\epsilon^* \approx 0.0829$, meaning that DRM only has to be 8.29\% effective in converting pirates to be econmically viable for artists. Unfortunately, the model is too broken to allow a sensible computation of $\eta$. However, given the lack of DRM in the music industry, and the fact that the only equilibria that permit this occur when artists prefer $\nodrm$, our model predicts the true value of $\epsilon$ to be less than $\epsilon^* \approx 0.0829$. Although this figure is quite low, it is within the realm of possibility - perhaps DRM really is woefully ineffective. Further improvements to the model would be required to make a stronger judgement.
+Using \eqref{Eq:EpsilonStar} to compute the critical value of $\varepsilon$ yields $\varepsilon^* \approx 0.0829$, meaning that DRM only has to be 8.29\% effective in converting pirates to be econmically viable for artists. Unfortunately, the model is too broken to allow a sensible computation of $\eta$. However, given the lack of DRM in the music industry, and the fact that the only equilibria that permit this occur when artists prefer $\nodrm$, our model predicts the true value of $\varepsilon$ to be less than $\varepsilon^* \approx 0.0829$. Although this figure is quite low, it is within the realm of possibility - perhaps DRM really is woefully ineffective. Further improvements to the model would be required to make a stronger judgement.
 
 \section{Extensions to the Model} \label{Sec:Extensions}
 
@@ -393,11 +502,118 @@ For many consumers, these two reasons are sufficient to render pirated copies to
 
 Digitally distributed video games are released with an array of types of DRM that vary by the store through which the game is purchased, with some stores selling exclusively DRM-free copies of games. Even though this is a more complex scenario, we believe that our model will give insight into this situation.
 
-\section{Conclusion}
-
 \pagebreak
 
 \bibliographystyle{plain}
 \bibliography{References}
+
+\pagebreak
+
+\section{Appendix}
+
+\subsection{Estimation of $\sigma_{A}$and $\sigma_{T}$}
+
+Recalling that the price elasticity of the album demand is 2.8\%,
+$\sigma_{A}$, the variation in the quantity of album sold induced
+by a one-unit variation in the album price, can be calculated through
+the price-elasticity equation; formally,
+
+\large
+\begin{eqnarray*}
+\left|\frac{\frac{a_{A} -\sigma_{A}(P'_{A})-(a_{A}-\sigma_{A}(P_{A}))}{a_{A}-\sigma_{A}(P_{A})}}{\frac{P_{A}'-P_{A}}{P_{A}}}\right|=\left|\frac{2.8}{100}\right|
+\end{eqnarray*}
+\normalsize
+
+Solving for $\sigma_{A}$, with $\triangle P_{A}=1$, yields
+\begin{eqnarray*}
+\sigma_{A}=\left|\frac{2.8a_{A}}{97.2P_{A}}\right|
+\end{eqnarray*}
+
+The variation of album sold induced by a one-unit variation in the
+album price depends therefore on the constant $a_{A}$, and on the
+album price $P_{A}.$ Fixing $a_{A}$ equals to 100 allows to obtain
+table X\footnote{
+The weights are obtained by assuming that $P_{A}$ follows a normal distribution of mean 10 and standard deviation 2.5, $P_{A}\thicksim N(10,2.5)$
+}. From here, the weighted average of $\sigma_{A}$ is 0.288, $\overline{\sigma_{A}}=0.288$.\\
+
+The same method is used to estimate $\sigma_T$, the variation the number
+of concert tickets sold following a one-unit variation in the concert
+ticket price, knowing that the price elasticity of concert ticket
+demand is almost inelastic, here quantifies as 0.5\%; formally:
+\large
+\begin{eqnarray*} 
+\left|\frac{\frac{a_{T-\sigma_{T}(P'_{T})-(a_{T}-\sigma_{T}(P_{T}))}}{a_{T}-\sigma_{T}(P_{T})}}{\frac{P_{T}'-P_{T}}{P_{T}}}\right|=\left|\frac{0.5}{100}\right|
+\end{eqnarray*}
+\normalsize
+
+Once more, solving for $\sigma_{T}$, with $\Delta P_{T}=1$, yields:
+\begin{eqnarray*}
+\sigma_{A}=\left|\frac{0.5a_{T}}{99.5P_{T}}\right|
+\end{eqnarray*}
+
+Finally, fixing $a_{T}=150$ allows to compute different values $\sigma_T$
+depending on the price of a ticket, summarized in table Y\footnote{
+The weights are obtained by assuming that $P_{T}$ follows a normal distribution of mean 30 and standard deviation 25, $P_{T}\thicksim N(10,25)$
+}. From here, the weighted average of $\sigma_{T}$ is 0.01, $\overline{\sigma_{T}}=0.01$.\\
+
+{[}INSERT TABLE FOR VALUES OF SIGMA A{]}
+
+{[}INSERT TABLE FOR VALUES OF SIGMA T{]}
+
+\pagebreak
+
+\subsection{Formal Description of the DRM Game with\\
+Imperfect Information}
+
+Recalling that record labels' profit in period t is described by the
+following equation:
+\begin{eqnarray*}
+\pi_{F_{i},t}=l_{i}((1+\delta(1.7\varepsilon_{t}-0.1))(\pi_{F_{i},A})+(1-\delta0.05)(\pi_{F_{i},T}))-\delta(\frac{\rho}{l_{i}+1})
+\end{eqnarray*}
+
+This payoff function can be adapted to the new configuration game
+in which record labels, and artist, do not know the actual value of
+$\varepsilon$. Therefore, when a given firm, $F_{i},$ has to decide
+whether or not implementing DRM in its albums, it does not consider
+its profit but its expected profit given the expected effectiveness
+of DRM; formally:
+\begin{eqnarray*}
+E(\pi_{F_{i},t})=l_{i}((1+\delta(1.7E(\varepsilon_{F_{i},t})-0.1))(\pi_{F_{i},A})+(1-\delta0.05)(\pi_{F_{i},T}))-\delta(\frac{\rho}{l_{i}+1})
+\end{eqnarray*}
+
+In the situation where artists fully trust record labels about the
+expected impact of DRM on illegal download, such that $E_{F_{i}}(\varepsilon_{t})=E_{m}(\varepsilon_{t})$, artists' expected payoffs is defined similarly.
+\begin{eqnarray*}
+E(\pi_{m,t})=(1+\delta(1.7E(\varepsilon_{F_{i},t})-0.1))(\pi_{m,A})-C_{A}+(1-\delta0.05)(\pi_{m,T})-C_{T}
+\end{eqnarray*}
+
+The equation given the expectation about the DRM effectiveness is
+founded on the rational expectation theory, with some adjustments.
+Specifically, in the first period t,firms are really optimist about
+the impact of DRM systems on illegal download, such that $E_{F_i}(\varepsilon)=1$.\\
+
+After the first period, firms based their expectations on what they
+observe in previous periods; however, firms are also assumed to be
+optimistic about the effect of DRM - which can also translate the incentive
+they have to overestimate $\varepsilon$ in order to convince artists
+to sign a contract with them. Hence, firms' expectations after the
+first period are:
+\begin{eqnarray*}
+E_{F_{i}}(\varepsilon_{t+1})=\varepsilon_{F_{i},t} + \mu
+\end{eqnarray*}
+
+with
+\begin{eqnarray*}
+\varepsilon_{F_{i},t}=E_{F_{i}}(\pi_{F_{i},t})-\pi_{F_{i},t}=-\frac{E_{F_{i}}(\pi_{F_{i},t})-\pi_{F_{i},t}}{1.7P_{A,F_{i}}}+E_{F_{i}}(\varepsilon)
+\end{eqnarray*}
+
+Finally, expectations are assumed to be more and more close to
+the actual value of $\varepsilon$ since record labels accumulated
+data over time and are able to distinguish the shape of the $\varepsilon$
+curve; formally, $\lim_{t\rightarrow\infty}E_{F}{}_{i}(\varepsilon_{t})-\varepsilon_{t}=0$.\\
+
+All those assumptions about the firms' and artists' beliefs are shown
+in section X, figure X. Insights about solutions for this game are
+also presented in this previous section.
 
 \end{document}
